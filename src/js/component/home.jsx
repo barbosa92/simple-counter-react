@@ -1,26 +1,25 @@
 import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
-const Home = () => {
+const Contador = (props) => {
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="d-flex">
+			<i class="fa-solid fa-clock" id="reloj"></i>
+
+			<div className="millones">
+				{Math.floor((props.segundos / 10000) % 10)}
+			</div>
+			<div className="millares">
+				{Math.floor((props.segundos / 1000) % 10)}
+			</div>
+			<div className="centenas">
+				{Math.floor((props.segundos / 100) % 10)}
+			</div>
+			<div className="decenas">
+				{Math.floor((props.segundos / 10) % 10)}
+			</div>
+			<div className="unidades">{props.segundos % 10}</div>
 		</div>
 	);
 };
 
-export default Home;
+export default Contador;
